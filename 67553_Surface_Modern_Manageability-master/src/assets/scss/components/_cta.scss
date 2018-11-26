@@ -1,0 +1,31 @@
+.cta {
+	@include breakpoint(small only) {
+		margin-top: rem-calc(50px);
+	}
+
+	background: $primary-color;
+	color: $white;
+	padding-top: rem-calc(55px);
+	padding-bottom: rem-calc(45px);
+
+	&__headline {
+		font-weight: $font-weight-light;
+		font-size: rem-calc(60px);
+		line-height: 1;
+	}
+
+	&__copy {
+		font-size: rem-calc(20px);
+		line-height: (28 / 20);
+	}
+
+	&__link {
+		font-weight: $font-weight-semi-bold;
+		color: $white;
+
+		&:hover {
+			color: $white;
+			text-decoration: underline;
+		}
+	}
+}

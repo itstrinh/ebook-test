@@ -1,0 +1,124 @@
+.headline {
+	&--h1 {
+		@extend h1;
+		line-height: (100 / 90);
+		letter-spacing: rem-calc(-0.9px);
+		font-weight: $font-weight-bold;
+
+		@include breakpoint(small only) {
+			margin-top: rem-calc(25px);
+			margin-bottom: rem-calc(15px);
+
+			br {
+				display: none;
+			}
+		}
+	}
+
+	&--h2 {
+		@extend h2;
+		line-height: (35 / 32);
+		letter-spacing: rem-calc(-0.5px);
+		font-weight: $font-weight-semi-bold;
+	}
+
+	&--h3 {
+		@extend h3;
+		font-weight: $font-weight-light;
+		line-height: 1.2;
+		letter-spacing: rem-calc(-0.6px);
+		margin-bottom: rem-calc(25px);
+
+		@include breakpoint(medium) {
+			line-height: 1;
+		}
+
+		&-large {
+			font-size: rem-calc(32px);
+			line-height: 1;
+
+			@include breakpoint(medium) {
+				font-size: rem-calc(65px);
+			}
+		}
+	}
+
+	&--top-margin {
+		margin-top: rem-calc(25px);
+	}
+
+	&--subHeading {
+		@extend h2;
+		font-size: rem-calc(24px);
+		letter-spacing: rem-calc(-0.24px);
+		line-height: 1;
+		font-weight: $font-weight-light;
+
+		@include breakpoint(small only) {
+			margin-bottom: rem-calc(50px);
+		}
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(32px);
+			padding-bottom: rem-calc(6px);
+		}
+
+		@include breakpoint(large) {
+			font-size: rem-calc(40px);
+		}
+	}
+
+	&--top-line {
+		@include breakpoint(small only) {
+			margin-top: rem-calc(25px);
+		}
+
+		@include breakpoint(medium) {
+			margin-bottom: rem-calc(15px);
+
+			&::before {
+				content: "";
+				display: block;
+				width: 55%;
+				height: 1px;
+				margin: 0 auto rem-calc(80px);
+				background: $dark-gray;
+			}
+		}
+	}
+
+	&--in-chapter {
+		color: $white;
+		margin-bottom: 0;
+		padding: rem-calc(25px) rem-calc(20px) !important;
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(60px);
+			line-height: (90/60);
+			padding: rem-calc(85px) rem-calc(60px) !important;
+			max-width: calc(100vw - 6.25rem * 2);
+		}
+
+		@include breakpoint(large) {
+			max-width: calc(80rem - 6.25rem * 2);
+		}
+	}
+
+	&--centered {
+		max-width: 100%;
+
+		@include breakpoint(medium) {
+			position: absolute;
+			align-self: flex-start;
+			margin-top: 28vh;
+		}
+
+		@include breakpoint(xlarge) {
+			margin-top: 25vh;
+		}
+	}
+
+	&--relative {
+		position: relative;
+	}
+}

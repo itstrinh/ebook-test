@@ -1,0 +1,99 @@
+.device-settings {
+	$height: rem-calc(850px);
+
+	@include breakpoint(medium) {
+		height: calc(#{$height});
+		overflow: hidden;
+		margin-top: rem-calc(-100px);
+	}
+
+	&__wrapper {
+		@include breakpoint(small only) {
+			&--desktop {
+				display: none;
+			}
+		}
+
+		@include breakpoint(medium) {
+			&--mobile {
+				display: none;
+			}
+
+			height: $height * 2;
+		}
+	}
+
+	&__column {
+		@include breakpoint(medium) {
+			width: 100%;
+		}
+	}
+
+	&__cell {
+		background: $dark-gray;
+		color: $white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-flow: column;
+
+		&-offset {
+			&--0 {
+				margin-top: rem-calc(28px) !important;
+			}
+
+			&--1 {
+				margin-top: calc(((#{$height * 2} / 12) * 1) + 35px) !important;
+			}
+
+			&--2 {
+				margin-top: calc(((#{$height * 2} / 12) * 2) + 35px) !important;
+			}
+
+			&--3 {
+				margin-top: calc(((#{$height * 2} / 12) * 3) + 35px) !important;
+			}
+
+			&--4 {
+				margin-top: calc(((#{$height * 2} / 12) * 4) + 35px) !important;
+			}
+		}
+
+		@include breakpoint(small only) {
+			margin-top: 0 !important;
+			height: rem-calc(150px) !important;
+			margin-bottom: rem-calc(25px);
+		}
+
+		@include breakpoint(medium) {
+			opacity: 0;
+			transition: opacity 0.8s ease-in-out;
+
+			@for $i from 1 through 4 {
+				.js-is-visible &--animate-#{$i} {
+					opacity: 1;
+
+					transition-delay: #{$i * 0.3}s;
+				}
+			}
+		}
+	}
+
+	&__icon {
+		max-width: 40%;
+		max-height: 40%;
+	}
+
+	&__text {
+		margin-top: rem-calc(12px);
+		text-align: center;
+		font-size: rem-calc(16px);
+		line-height: (28 / 19);
+		padding: 0 rem-calc(15px);
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(19px);
+			line-height: (28 / 19);
+		}
+	}
+}

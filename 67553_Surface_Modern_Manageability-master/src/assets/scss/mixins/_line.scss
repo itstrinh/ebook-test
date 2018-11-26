@@ -1,0 +1,32 @@
+@mixin line($correction: 0px, $topOffset: 22px) {
+	@include breakpoint(small only) {
+		&::before,
+		&::after {
+			display: none !important;
+		}
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		background: #505050;
+		position: absolute;
+		z-index: -1;
+	}
+
+	&::before {
+		width: calc(#{rem-calc(11px)} + (100% / 12));
+		height: 3px;
+		top: rem-calc($topOffset);
+		right: calc(#{rem-calc(-11px)} - (100% / 12) + #{$correction});
+	}
+
+	&::after {
+		width: rem-calc(14px);
+		height: rem-calc(14px);
+		border-radius: 100%;
+		top: rem-calc($topOffset - 6px);
+		right: calc(#{rem-calc(-25px)} - (100% / 12) + #{$correction});
+	}
+}

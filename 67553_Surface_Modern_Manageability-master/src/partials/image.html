@@ -1,0 +1,15 @@
+<img
+	{{#if fullHeight}}
+		class="image image--fullHeight"
+	{{else if square}}
+		class="image image--square"
+	{{else}}
+		class="image"
+	{{/if}}
+	src="{{root}}assets/img/{{filename}}.jpg"
+	{{#if rellax}}
+	data-rellax-speed="-1"
+	{{/if}}
+	srcset="{{root}}assets/img/{{filename}}-3000w.jpg 3000w, {{root}}assets/img/{{filename}}.jpg 1920w, {{root}}assets/img/{{filename}}-1024w.jpg 1024w, {{root}}assets/img/{{filename}}-800w.jpg 800w, {{root}}assets/img/{{filename}}-640w.jpg 640w, {{root}}assets/img/{{filename}}-320w.jpg 320w"
+	alt="{{alt}}"
+>

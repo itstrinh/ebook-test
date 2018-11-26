@@ -1,0 +1,600 @@
+@keyframes animateLine1 {
+	from {
+		transform: scaleX(0);
+	}
+
+	20% {
+		transform: scaleX(1);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes animateLine2 {
+	from {
+		transform: scaleX(0);
+	}
+
+	10% {
+		transform: scaleX(0);
+	}
+
+	30% {
+		transform: scaleX(1);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes animateLine3 {
+	from {
+		transform: scaleX(0);
+	}
+
+	20% {
+		transform: scaleX(0);
+	}
+
+	40% {
+		transform: scaleX(1);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes animateLine4 {
+	from {
+		transform: scaleX(0);
+	}
+
+	30% {
+		transform: scaleX(0);
+	}
+
+	50% {
+		transform: scaleX(1);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes animateLine5 {
+	from {
+		transform: scaleX(0);
+	}
+
+	40% {
+		transform: scaleX(0);
+	}
+
+	60% {
+		transform: scaleX(1);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes animateLine6 {
+	from {
+		transform: scaleX(0);
+	}
+
+	60% {
+		transform: scaleX(0);
+	}
+
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes animateDot1 {
+	from, 18% {
+		opacity: 0;
+	}
+
+	93%, 19% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+@keyframes animateDot2 {
+	from, 22% {
+		opacity: 0;
+	}
+
+	93%, 23% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot3 {
+	from, 31% {
+		opacity: 0;
+	}
+
+	93%, 32% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot4 {
+	from, 40% {
+		opacity: 0;
+	}
+
+	93%, 41% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot5 {
+	from, 48% {
+		opacity: 0;
+	}
+
+	93%, 49% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot6 {
+	from, 53% {
+		opacity: 0;
+	}
+
+	93%, 54% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot7 {
+	from, 68% {
+		opacity: 0;
+	}
+
+	93%, 69% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot8 {
+	from, 79% {
+		opacity: 0;
+	}
+
+	93%, 80% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot9 {
+	from, 87% {
+		opacity: 0;
+	}
+
+	93%, 88% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes animateDot10 {
+	from, 92% {
+		opacity: 0;
+	}
+
+	93% {
+		opacity: 1;
+	}
+
+	to, 94% {
+		opacity: 0;
+	}
+}
+
+@keyframes shake {
+	93% {
+		transform: translateX(0);
+	}
+
+	94% {
+		transform: translateX(-10px);
+	}
+
+	95% {
+		transform: translateX(10px);
+	}
+
+	96% {
+		transform: translateX(-10px);
+	}
+
+	97% {
+		transform: translateX(10px);
+	}
+
+	98% {
+		transform: translateX(-5px);
+	}
+
+	99% {
+		transform: translateX(5px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.benefits {
+	@include breakpoint(medium) {
+		margin-top: rem-calc(190px);
+		margin-bottom: rem-calc(170px);
+	}
+
+	&__headline {
+		line-height: 1;
+		font-weight: $font-weight-light;
+		font-size: rem-calc(32px);
+		margin-bottom: rem-calc(25px);
+
+		@include breakpoint(medium) {
+			margin-bottom: rem-calc(85px);
+			font-size: rem-calc(50px);
+		}
+
+		@include breakpoint(large) {
+			font-size: rem-calc(65px);
+		}
+	}
+
+	&__sub-headline {
+		font-size: rem-calc(32px);
+		line-height: (35 / 32);
+		font-weight: $font-weight-semi-bold;
+		margin-bottom: rem-calc(40px);
+
+		&::before {
+			content: "";
+			display: block;
+			width: rem-calc(80px);
+			height: 3px;
+			background: $black;
+			margin-bottom: rem-calc(20px);
+
+			@include breakpoint(small only) {
+				margin-top: rem-calc(20px);
+			}
+		}
+	}
+
+	&__login {
+		background: #e6e6e6;
+		flex-flow: row wrap;
+		padding: rem-calc(20px);
+		position: relative;
+		align-self: flex-start;
+		margin-bottom: rem-calc(25px);
+
+		@include line(0px, 70px);
+
+		@include breakpoint(medium) {
+			padding: rem-calc(40px);
+			margin-bottom: rem-calc(120px);
+
+			&::after,
+			&::before {
+				opacity: 0;
+				transform: translate3d(-15px, 0, 0);
+				transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+			}
+
+			&.js-is-visible {
+				&::after,
+				&::before {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+		}
+	}
+
+	&__input {
+		background: $white;
+		width: 100%;
+		font-size: 0;
+		display: flex;
+
+		&:first-child {
+			margin-bottom: rem-calc(30px);
+		}
+
+		&-content {
+			width: calc(100% - #{rem-calc(50px)});
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			padding: 0 rem-calc(10px);
+
+			@include breakpoint(medium) {
+				padding: 0 rem-calc(20px);
+			}
+
+			@include breakpoint(large) {
+				height: rem-calc(80px);
+				width: calc(100% - #{rem-calc(80px)});
+			}
+
+			@include breakpoint(xlarge) {
+				height: rem-calc(174px);
+				width: calc(100% - #{rem-calc(174px)});
+			}
+		}
+
+		&--password.js-is-visible {
+			animation-duration: 3.5s;
+			animation-iteration-count: infinite;
+			animation-fill-mode: forwards;
+			animation-name: shake;
+
+			.benefits__placeholder {
+				animation-duration: 3.5s;
+				animation-iteration-count: infinite;
+				animation-fill-mode: forwards;
+
+				@for $i from 1 through 10 {
+					&:nth-child(#{$i}) {
+						animation-name: animateDot#{$i};
+					}
+				}
+			}
+		}
+	}
+
+	&__icon {
+		width: rem-calc(50px);
+		height: rem-calc(50px);
+		padding: rem-calc(12px) rem-calc(15px) rem-calc(15px) rem-calc(15px);
+		background: $primary-color;
+		display: inline-block;
+
+		@include breakpoint(large) {
+			width: rem-calc(80px);
+			height: rem-calc(80px);
+			padding: 0;
+		}
+
+		@include breakpoint(xlarge) {
+			width: rem-calc(174px);
+			height: rem-calc(174px);
+			padding: 0;
+		}
+	}
+
+	&__icon-image {
+		@include breakpoint(large) {
+			width: rem-calc(50px);
+			height: rem-calc(50px);
+			margin: rem-calc(15px);
+		}
+
+		@include breakpoint(xlarge) {
+			width: rem-calc(100px);
+			height: rem-calc(100px);
+			margin: rem-calc(((174px - 100px) / 2));
+		}
+	}
+
+	&__placeholder {
+		display: inline-block;
+		width: rem-calc(12px);
+		height: rem-calc(12px);
+		border-radius: 100%;
+		background: $dark-gray;
+		flex-shrink: 0;
+
+		@include breakpoint(medium) {
+			width: rem-calc(10px);
+			height: rem-calc(10px);
+		}
+
+		@include breakpoint(xlarge) {
+			width: rem-calc(20px);
+			height: rem-calc(20px);
+		}
+
+		@include breakpoint(xxlarge) {
+			width: rem-calc(28px);
+			height: rem-calc(28px);
+		}
+	}
+
+	&__aside {
+		flex-flow: row wrap;
+		align-self: flex-start;
+
+		@include breakpoint(medium) {
+			margin-left: (100% / 12);
+		}
+	}
+
+	&__box {
+		background: #505050;
+		color: $white;
+		width: 100%;
+		padding: rem-calc(15px) rem-calc(20px) rem-calc(20px);
+
+		@include breakpoint(large) {
+			padding: rem-calc(25px) rem-calc(40px) rem-calc(30px);
+		}
+
+		&:first-child {
+			margin-bottom: rem-calc(15px);
+		}
+
+		@include breakpoint(medium) {
+			opacity: 0;
+			transform: translate3d(-15px, 0, 0);
+			transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+			transition-delay: 0.25s;
+
+			.js-is-visible & {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		&--right-margin {
+			@include breakpoint(medium) {
+				margin-bottom: rem-calc(130px) !important;
+				margin-right: calc(((100% / 12) / 2) + 35px); // half a column + gutter
+			}
+		}
+	}
+
+	&__copy {
+		font-weight: $font-weight-normal;
+		margin-bottom: 0;
+		margin-top: rem-calc(10px);
+	}
+
+	&__list {
+		margin-bottom: 0;
+
+		&-item {
+			margin-top: rem-calc(15px);
+		}
+	}
+
+	&__book {
+		display: block;
+		position: relative;
+		@include line(0px, 70px);
+
+		@include breakpoint(small only) {
+			margin-bottom: rem-calc(25px);
+		}
+
+		@include breakpoint(medium) {
+			&::after,
+			&::before {
+				opacity: 0;
+				transform: translate3d(-15px, 0, 0);
+				transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+			}
+
+			&.js-is-visible {
+				&::after,
+				&::before {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+		}
+
+		&-image {
+			width: calc(100% + 70px);
+			height: auto;
+			margin-left: -35px;
+		}
+
+		&.js-is-visible .benefits__text-line {
+			@for $i from 1 through 6 {
+				&:nth-child(#{$i}) {
+					animation-name: animateLine#{$i};
+				}
+			}
+		}
+	}
+
+	&__text-container {
+		position: absolute;
+		top: 15%;
+		left: 50%;
+		width: 50%;
+		padding: 0 5%;
+
+		@include breakpoint(medium) {
+			top: 5%;
+		}
+
+		@include breakpoint(xlarge) {
+			top: 10%;
+		}
+
+		@include breakpoint(xxlarge) {
+			top: 15%;
+		}
+	}
+
+	&__text-line {
+		width: 100%;
+		height: rem-calc(8px);
+		background: $primary-color;
+		transform-origin: left center;
+		animation-duration: 4s;
+		animation-timing-function: ease-out;
+		animation-iteration-count: infinite;
+		animation-fill-mode: forwards;
+		margin-bottom: rem-calc(14px);
+
+		&:last-child {
+			width: 30%;
+		}
+
+		@include breakpoint(xlarge) {
+			margin-bottom: rem-calc(20px);
+			height: rem-calc(15px);
+		}
+
+		@include breakpoint(xxlarge) {
+			margin-bottom: rem-calc(32px);
+			height: rem-calc(18px);
+		}
+	}
+}

@@ -1,0 +1,120 @@
+.in-chapter-nav {
+
+	&.js-is-visible {
+		@include breakpoint(medium) {
+			.in-chapter-nav__cell {
+				@for $i from 1 through 3 {
+					&:nth-child(#{$i}) .in-chapter-nav__text {
+						&,
+						&::before {
+							transition-delay: #{$i * 0.075}s;
+						}
+					}
+				}
+
+				.in-chapter-nav__text {
+					transform: translate3d(0, 0, 0);
+					opacity: 1;
+
+					&::before {
+						transform: translate3d(0, 0, 0);
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&__headline {
+		font-size: rem-calc(28px);
+		line-height: 1;
+		font-weight: $font-weight-light;
+		margin-bottom: rem-calc(25px);
+
+		@include breakpoint(small only) {
+			margin-top: rem-calc(50px);
+		}
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(65px);
+			margin-bottom: rem-calc(85px);
+		}
+	}
+
+	&__cell {
+		flex-flow: column;
+		margin-bottom: rem-calc(50px);
+
+		@include breakpoint(medium) {
+			margin-bottom: rem-calc(120px);
+		}
+
+		&:hover {
+			.in-chapter-nav__text::before {
+				width: rem-calc(100px);
+			}
+
+			.in-chapter-nav__box::before {
+				height: 100%;
+			}
+		}
+	}
+
+	&__box {
+		width: 100%;
+		background: $dark-gray;
+		padding: rem-calc(25px);
+		font-size: rem-calc(40px);
+		line-height: 1;
+		color: $white;
+		font-weight: $font-weight-light;
+		letter-spacing: rem-calc(-0.6px);
+		position: relative;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 0;
+			background: $primary-color;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transition: height 0.4s cubic-bezier(0.120, 0.475, 0.200, 0.990);
+		}
+	}
+
+	&__text {
+		font-size: rem-calc(20px);
+		line-height: (28/20);
+		color: $black;
+
+		&::before {
+			content: "";
+			display: block;
+			width: rem-calc(80px);
+			height: 3px;
+			background: $dark-gray;
+			margin-top: rem-calc(20px);
+			margin-bottom: rem-calc(12px);
+			transition: width 0.25s ease-out, transform ease-out 0.25s, opacity ease-out 0.25s;
+		}
+
+		@include breakpoint(medium) {
+			transform: translate3d(0, -25%, 0);
+			z-index: -1;
+			position: relative;
+			transition: transform ease-out 0.25s, opacity ease-out 0.25s;
+			opacity: 0;
+
+			&::before {
+				transform: translate3d(0, 15px, 0);
+				opacity: 0;
+			}
+		}
+	}
+
+	&__number {
+		position: relative;
+	}
+}

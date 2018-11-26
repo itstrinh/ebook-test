@@ -1,0 +1,156 @@
+.breach-reduction {
+	@include breakpoint(medium) {
+		margin-top: rem-calc(190px);
+		margin-bottom: rem-calc(170px);
+	}
+
+	&__headline {
+		line-height: 1;
+		font-weight: $font-weight-light;
+		font-size: rem-calc(32px);
+
+		@include breakpoint(small only) {
+			margin-top: rem-calc(50px);
+		}
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(50px);
+		}
+
+		@include breakpoint(large) {
+			font-size: rem-calc(65px);
+		}
+	}
+
+	&__sub-headline {
+		font-size: rem-calc(28px);
+		line-height: (35 / 32);
+		letter-spacing: rem-calc(-0.5px);
+		font-weight: $font-weight-semi-bold;
+		margin-top: rem-calc(25px);
+		margin-bottom: rem-calc(25px);
+
+		@include breakpoint(large) {
+			margin-top: rem-calc(65px);
+			font-size: rem-calc(32px);
+		}
+	}
+
+	&__progress-bar {
+		width: 100%;
+		font-size: 0;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+
+		@include line(1px, 25px);
+
+		@include breakpoint(medium) {
+			margin-bottom: rem-calc(35px);
+
+			&::after,
+			&::before {
+				opacity: 0;
+				transform: translate3d(-15px, 0, 0);
+				transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+			}
+
+			&.js-is-visible {
+				&::after,
+				&::before {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+		}
+
+		&--2-active.js-is-visible .breach-reduction__progress-item {
+			@for $i from 1 through 2 {
+				&:nth-child(#{$i}) {
+					background: $dark-gray;
+					transition-delay: #{$i * 0.4}s;
+				}
+			}
+		}
+
+		&--5-active.js-is-visible .breach-reduction__progress-item {
+			@for $i from 1 through 5 {
+				&:nth-child(#{$i}) {
+					background: $primary-color;
+					transition-delay: #{$i * 0.4}s;
+				}
+			}
+		}
+
+		&--alternative {
+			&::before,
+			&::after {
+				background: $primary-color;
+			}
+		}
+	}
+
+	&__progress-item {
+		display: inline-block;
+		width: rem-calc(25px);
+		height: rem-calc(55px);
+		background: $medium-gray;
+		transition: background ease-in-out 0.2s;
+
+		@include breakpoint(large) {
+			width: rem-calc(36px);
+			height: rem-calc(80px);
+		}
+	}
+
+	&__progress-label {
+		@include breakpoint(small only) {
+			margin-top: rem-calc(5px);
+			margin-bottom: rem-calc(30px);
+		}
+
+		@include breakpoint(medium) {
+			margin-left: (100% / 12);
+			opacity: 0;
+			transform: translate3d(-15px, 0, 0);
+			transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+			transition-delay: 0.2s;
+
+			&.js-is-visible {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		.breach-reduction__headline {
+			display: inline-block;
+			flex-shrink: 0;
+
+			@include breakpoint(small only) {
+				margin-top: 0;
+				line-height: inherit !important;
+				font-size: rem-calc(24px) !important;
+			}
+
+			@include breakpoint(medium) {
+				width: rem-calc(80px);
+			}
+
+			@include breakpoint(large) {
+				width: rem-calc(120px);
+			}
+		}
+	}
+
+	&__progress-text {
+		font-size: rem-calc(24px);
+		letter-spacing: rem-calc(-0.5px);
+		font-weight: $font-weight-semi-bold;
+		margin-left: rem-calc(10px);
+
+		@include breakpoint(medium) {
+			line-height: (35 / 32);
+			margin-left: rem-calc(32px);
+		}
+	}
+}

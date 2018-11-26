@@ -1,0 +1,19 @@
+.get-started {
+	&__callout {
+		font-size: rem-calc(32);
+		line-height: (35 / 32);
+		font-weight: $font-weight-semi-bold;
+		display: inline-block;
+		color: $primary-color;
+
+		&::before {
+			content: "";
+			display: block;
+			height: 3px;
+			width: rem-calc(80px);
+			background: $primary-color;
+			margin-top: rem-calc(40px);
+			margin-bottom: rem-calc(40px);
+		}
+	}
+}

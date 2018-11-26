@@ -1,0 +1,143 @@
+.in-page-nav {
+	@include breakpoint(small only) {
+		display: none;
+	}
+
+	margin-top: rem-calc(150px);
+	margin-bottom: rem-calc(225px);
+
+	&.js-is-visible {
+		@include breakpoint(medium) {
+			.in-page-nav__item {
+				@for $i from 1 through 4 {
+					&:nth-child(#{$i}) .in-page-nav__itemHeadline {
+						&,
+						&::before {
+							transition-delay: #{$i * 0.075}s;
+						}
+					}
+				}
+
+				&Headline {
+					transform: translate3d(0, 0, 0);
+					opacity: 1;
+
+					&::before {
+						transform: translate3d(0, 0, 0);
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&__item {
+		cursor: pointer;
+		flex: 1 1 auto !important;
+		align-self: flex-start;
+
+		&--offset {
+			margin-top: rem-calc(120px);
+		}
+
+		&Headline {
+			padding-top: 55px;
+			font-size: rem-calc(22px);
+			line-height: (35 / 32);
+			letter-spacing: rem-calc(-0.16px);
+			font-weight: 100;
+			color: $black;
+
+			@include breakpoint(medium) {
+				transform: translate3d(0, -25%, 0);
+				z-index: -1;
+				position: relative;
+				transition: transform ease-out 0.25s, opacity ease-out 0.25s;
+				opacity: 0;
+
+				&::before {
+					transform: translate3d(0, 15px, 0);
+					opacity: 0;
+				}
+			}
+
+			@include breakpoint(large) {
+				font-size: rem-calc(26px);
+			}
+
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(32px);
+			}
+
+			&::before {
+				content: "";
+				height: 3px;
+				width: rem-calc(80px);
+				background: $dark-gray;
+				display: block;
+				position: relative;
+				top: -25px;
+				transition: width 0.25s ease-out, transform ease-out 0.25s, opacity ease-out 0.25s;
+			}
+		}
+
+		&:hover {
+			.in-page-nav {
+				&__itemHeadline::before {
+					width: rem-calc(100px);
+				}
+
+				&__image {
+					.image {
+						transform: scale(1.05);
+					}
+
+					&::after {
+						height: 100%;
+					}
+				}
+
+				&__number {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+		}
+	}
+
+	&__image {
+		&::after {
+			content: '';
+			width: 100%;
+			background: $primary-color;
+			position: absolute;
+			height: 0;
+			bottom: 0;
+			transition: height 0.4s cubic-bezier(0.120, 0.475, 0.200, 0.990);
+		}
+
+		.image {
+			transition: transform 0.3s cubic-bezier(0.120, 0.475, 0.200, 0.990);
+		}
+	}
+
+	&__number {
+		position: absolute;
+		top: rem-calc(15px);
+		left: rem-calc(20px);
+		font-size: rem-calc(35px);
+		font-weight: $font-weight-bold;
+		line-height: 1;
+		color: $white;
+		opacity: 0;
+		transform: translate3d(0, 25px, 0);
+		transition: opacity 0.4s cubic-bezier(0.120, 0.475, 0.200, 0.990), transform 1s cubic-bezier(0.120, 0.475, 0.200, 0.990);
+		z-index: 1;
+
+		@include breakpoint(large) {
+			font-size: rem-calc(90px);
+			top: rem-calc(25px);
+			left: rem-calc(30px);
+		}
+	}
+}

@@ -1,0 +1,117 @@
+.togglebox {
+	color: $white;
+	position: relative;
+	flex-flow: column wrap;
+	margin-top: rem-calc(25px);
+	margin-bottom: rem-calc(50px);
+
+	@include breakpoint(medium) {
+		margin-top: rem-calc(115px);
+		margin-bottom: rem-calc(250px);
+	}
+
+	&--top-line {
+		position: relative;
+
+		&::before {
+			content: "";
+			display: block;
+			position: relative;
+			width: 25%;
+			left: (100% / 12);
+			height: 1px;
+			background: $dark-gray;
+			margin-bottom: rem-calc(50px);
+
+			@include breakpoint(medium) {
+				margin-top: rem-calc(70px);
+				margin-bottom: rem-calc(70px);
+			}
+		}
+	}
+
+	&__content {
+		visibility: hidden;
+		background: $primary-color;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1;
+		padding: 0 rem-calc(20px) rem-calc(10px) rem-calc(30px);
+		opacity: 0;
+		transition: all ease-in 0.075s;
+		transform: translate3d(0, -2px, 0);
+
+		@include breakpoint(medium) {
+			width: (100% / 12 * 7);
+			padding: 0 rem-calc(70px) rem-calc(10px) rem-calc(80px);
+		}
+	}
+
+	&--open {
+		.togglebox {
+			&__content {
+				visibility: visible;
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+			}
+
+			&__icon {
+				&--plus {
+					transform: rotate(-90deg);
+				}
+
+				&--minus {
+					transform: rotate(-90deg);
+					opacity: 0 !important;
+				}
+			}
+		}
+	}
+
+	.ie11 &--open rect.togglebox__icon {
+		&--minus {
+			opacity: 1 !important;
+		}
+
+		&--plus {
+			opacity: 0 !important;
+		}
+	}
+
+	&__icon {
+		transition: opacity ease-out 0.05s, transform ease-out 0.2s;
+		transform: rotate(0deg);
+		transform-origin: center !important;
+	}
+
+	&__title {
+		user-select: none;
+		padding: rem-calc(28px);
+		cursor: pointer;
+		background: $primary-color;
+		font-weight: $font-weight-semi-bold;
+		font-size: rem-calc(24px);
+		line-height: 1.25;
+		display: flex;
+
+		@include breakpoint(medium) {
+			font-size: rem-calc(32px);
+		}
+
+		svg {
+			width: 25px;
+			height: 25px;
+			margin-right: rem-calc(28px);
+			margin-top: rem-calc(5px);
+
+			@include breakpoint(medium) {
+				margin-top: rem-calc(8px);
+			}
+		}
+
+		@include breakpoint(medium) {
+			margin-top: rem-calc(7px);
+		}
+	}
+}
